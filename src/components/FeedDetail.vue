@@ -5,7 +5,7 @@
         <div class="feed-top">
           <div class="feed-top-left">
             <div class="feed-writer">
-              {{ feed.nickname !== null && getBufferSize(feed.nickname) < 20 ? feed.nickname : feed.nickname.substr(0, 20) + "..." }}
+              <a :href="'https://github.com/'+feed.nickname+''" target="_blank">{{ feed.nickname }}</a>
             </div>
             <div class="feed-date">
               {{ feed.created_at }}
@@ -119,6 +119,10 @@ export default {
   align-items: center;
   font-weight: 600;
 }
+.feed-writer a {
+  text-decoration: none;
+  color: black;
+}
 .feed-date {
   display: grid;
   align-items: center;
@@ -149,7 +153,7 @@ export default {
     }
     .feed-image {
       width: 100%;
-      height: 250px;
+      height: 150px;
     }
     .feed-top-btn {
         height: 20px;
