@@ -1,26 +1,10 @@
-# codelog
+# Codelog Frontend
 
-## Project setup
-```
-yarn install
-```
+Record all of url that you want to remind
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+http://codelog.kr
 
-### Compiles and minifies for production
-```
-yarn run build
-```
 
-### Run your tests
-```
-yarn run test
-```
+### Language
 
-### Lints and fixes files
-```
-yarn run lint
-```
+Vue.js
