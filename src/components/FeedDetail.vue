@@ -87,14 +87,13 @@ export default {
   margin: 10px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0px 0px 0px white inset, 0 0 3px rgba(0, 0, 0, 0.2);
   transition-duration: 0.3s;
 }
 .feed:hover
 {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
 .feed-top {
   display: grid;
