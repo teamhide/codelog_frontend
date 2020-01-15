@@ -10,7 +10,7 @@
       <p>Notice</p>
     </div>
     <div class="about-body">
-      본 사이트는 유저의 Github 이메일, 닉네임을 수집합니다. Github를 통해 로그인을 하지만 이메일, 닉네임을 제외한 기타 정보들은 저장하지 않습니다.<br />
+      본 사이트는 유저의 Github 이메일, 닉네임, 액세스 토큰을 수집합니다. 하지만 이 정보들은 개인을 식별하기 위해서만 사용되며 기타 다른 정보들은 저장하지 않습니다.<br />
     </div>    
     <div class="about-header">
       <p>Rules</p>
