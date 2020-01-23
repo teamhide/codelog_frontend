@@ -82,3 +82,21 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.load-feed {
+  margin-top: 15px;
+  text-align: center;
+}
+.load-feed a {
+  text-decoration: none;
+  color: black;
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 15px;
+}
+.load-feed a:hover {
+  background-color: #6196ff;
+  color: white;
+}
+</style>

@@ -66,10 +66,14 @@ export default {
           headers: { Authorization: 'Bearer '+ this.$store.getters.getToken }
         })
         .then(() => {
-          window.location.replace('/');
+          for (var i = 0; i < this.feeds.length - 1; i++) {
+            if (this.feeds[i].id == feedId) {
+              this.feeds.splice(i, 1);
+            }
+          }
         })
         .catch(() => {
-          window.location.replace('/');
+          alert('피드 삭제 실패');
         });
       }
     }
