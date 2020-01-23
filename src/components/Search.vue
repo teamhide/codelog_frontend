@@ -61,7 +61,7 @@ export default {
       }
 
       this.prev = this.feeds[this.feeds.length - 1].id;
-      if (this.feeds && this.feeds.length > 10) {
+      if (this.feeds && this.feeds.length >= 12) {
         this.isRemain = true;
       }
     },
@@ -72,7 +72,7 @@ export default {
         feeds.forEach((value, index) => {
           this.feeds.push(value);
         })
-        this.isRemain = feeds.length > 12 ? true : false;
+        this.isRemain = feeds.length >= 12 ? true : false;
       } else {
         this.isRemain = false;
         this.prev = null;
