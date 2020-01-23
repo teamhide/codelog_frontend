@@ -24,6 +24,18 @@ export default {
       isRemain: false,
     }
   },
+  created() {
+    if (!this.$store.getters.getToken) {
+      this.logOut();
+    } else {
+      var params = new URLSearchParams();
+      params.append('token', this.$store.getters.getToken);
+      axios.post(`${Endpoint.URL}/oauth/verify_token`, params)
+      .catch((err) => {
+        this.logOut();
+      });
+    }
+  },
   async mounted() {
     this.feeds = await this.getFeeds();
 
@@ -60,6 +72,11 @@ export default {
       } else {
         this.isRemain = false;
       }
+    },
+    logOut() {
+      this.$store.commit('deleteToken');
+      this.$store.commit('deleteRefreshToken');
+      this.$store.commit('deleteNickname');
     }
   }
 }
