@@ -8,8 +8,8 @@
     </div>
     <div class="post-switch">
       <label class="container">Private
-        <input type="checkbox" checked="checked">
-        <span v-on:click="checkPrivate" class="checkmark"></span>
+        <input v-on:click="checkPrivate" type="checkbox" checked="checked">
+        <span class="checkmark"></span>
       </label>
     </div>
     <div v-on:click="write" class="post-write" id="post-write">
@@ -68,7 +68,7 @@ export default {
       } else if (this.url.length < 10) {
         alert('유효한 URL을 입력해주세요.');
         return
-      } else if (!this.url.startsWith('http://') && !this.url.startsWith('https://')) {
+      } else if (!this.url.toLowerCase().startsWith('http://') && !this.url.toLowerCase().startsWith('https://')) {
         alert('http:// 또는 https://로 시작하는 주소를 입력해주세요.');
         return
       }
