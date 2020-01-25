@@ -50,7 +50,6 @@ export default {
   methods: {
     checkPrivate() {
       this.isPrivate = !this.isPrivate;
-      console.log(this.isPrivate);
     },
     lockInput(flag) {
       document.getElementById("post-url").disabled = flag;
