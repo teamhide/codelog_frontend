@@ -32,7 +32,7 @@ export default {
     return {
       url: '',
       tags: '',
-      isPrivate: true,
+      isPrivate: false,
       keyword: '',
       searchResult: ["python", "msa", "golang", "clean-architecture"],
     }
