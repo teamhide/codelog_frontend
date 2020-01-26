@@ -117,4 +117,9 @@ export default {
   background-color: #6196ff;
   color: white;
 }
+@media screen and (max-width: 510px){
+  .feed-container {
+    margin-top: 20px;
+  }
+}
 </style>

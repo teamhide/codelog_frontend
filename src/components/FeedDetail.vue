@@ -1,45 +1,43 @@
 <template>
-  <div>
-    <div class="feed-container">
-      <div class="feed" v-for="feed in feeds" v-bind:key="feed.id">
-        <div class="feed-top">
-          <div class="feed-top-left">
-            <div class="feed-writer">
-              <a :href="'https://github.com/'+feed.nickname+''" target="_blank">{{ feed.nickname }}</a>
-            </div>
-            <div class="feed-date">
-              {{ feed.created_at }}
-            </div>
+  <div class="feed-container">
+    <div class="feed" v-for="feed in feeds" v-bind:key="feed.id">
+      <div class="feed-top">
+        <div class="feed-top-left">
+          <div class="feed-writer">
+            <a :href="'https://github.com/'+feed.nickname+''" target="_blank">{{ feed.nickname }}</a>
           </div>
-          <div v-if="feed.nickname !== null && $store.state.nickname == feed.nickname" class="feed-top-right">
-            <div class="feed-top-btn" v-on:click="deleteFeed(feed.id)"></div>
+          <div class="feed-date">
+            {{ feed.created_at }}
           </div>
         </div>
-        <div class="feed-image">
-          <template v-if="feed.image !== null">
-            <a :href="''+feed.url+''" target="_blank"><img :src="''+feed.image+''" width="100%" height="100%" style="background-size: cover; background-position: center;" /></a>
-          </template>
-          <template v-else>
-            <a :href="''+feed.url+''" target="_blank"><img src="../assets/no-image.jpg" width="100%" height="100%" style="background-size: cover; background-position: center;" /></a>
-          </template>
+        <div v-if="feed.nickname !== null && $store.state.nickname == feed.nickname" class="feed-top-right">
+          <div class="feed-top-btn" v-on:click="deleteFeed(feed.id)"></div>
         </div>
-        <div class="feed-body">
-          <a :href="''+feed.url+''" target="_blank">
-            <div class="feed-title">
-              {{ feed.title }}
-            </div>
-            <div class="feed-description">
-              {{
-                feed.description !== null ?
-                getBufferSize(feed.description) < 21 ? feed.description : feed.description.substr(0, 21) + "..." :
-                "No description"
-              }}
-            </div>
-            <div class="feed-url">
-              <a :href="''+feed.url+''" target="_blank">{{ getBufferSize(feed.url) < 32 ? feed.url : feed.url.substr(0, 32) + "..." }}</a>
-            </div>
-          </a>
-        </div>
+      </div>
+      <div class="feed-image">
+        <template v-if="feed.image !== null">
+          <a :href="''+feed.url+''" target="_blank"><img :src="''+feed.image+''" width="100%" height="100%" style="background-size: cover; background-position: center;" /></a>
+        </template>
+        <template v-else>
+          <a :href="''+feed.url+''" target="_blank"><img src="../assets/no-image.jpg" width="100%" height="100%" style="background-size: cover; background-position: center;" /></a>
+        </template>
+      </div>
+      <div class="feed-body">
+        <a :href="''+feed.url+''" target="_blank">
+          <div class="feed-title">
+            {{ feed.title }}
+          </div>
+          <div class="feed-description">
+            {{
+              feed.description !== null ?
+              getBufferSize(feed.description) < 21 ? feed.description : feed.description.substr(0, 21) + "..." :
+              "No description"
+            }}
+          </div>
+          <div class="feed-url">
+            <a :href="''+feed.url+''" target="_blank">{{ getBufferSize(feed.url) < 32 ? feed.url : feed.url.substr(0, 32) + "..." }}</a>
+          </div>
+        </a>
       </div>
     </div>
   </div>
