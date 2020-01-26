@@ -24,19 +24,21 @@
           </template>
         </div>
         <div class="feed-body">
-          <div class="feed-title">
-            {{ feed.title }}
-          </div>
-          <div class="feed-description">
-            {{
-              feed.description !== null ?
-              getBufferSize(feed.description) < 21 ? feed.description : feed.description.substr(0, 21) + "..." :
-              "No description"
-            }}
-          </div>
-          <div class="feed-url">
-            <a :href="''+feed.url+''" target="_blank">{{ getBufferSize(feed.url) < 32 ? feed.url : feed.url.substr(0, 32) + "..." }}</a>
-          </div>
+          <a :href="''+feed.url+''" target="_blank">
+            <div class="feed-title">
+              {{ feed.title }}
+            </div>
+            <div class="feed-description">
+              {{
+                feed.description !== null ?
+                getBufferSize(feed.description) < 21 ? feed.description : feed.description.substr(0, 21) + "..." :
+                "No description"
+              }}
+            </div>
+            <div class="feed-url">
+              <a :href="''+feed.url+''" target="_blank">{{ getBufferSize(feed.url) < 32 ? feed.url : feed.url.substr(0, 32) + "..." }}</a>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -144,6 +146,14 @@ export default {
 .feed-body {
   padding: 10px;
 }
+.feed-body a {
+  text-decoration: none;
+  color: black;
+}
+.feed-url a {
+  text-decoration: none;
+  color: blue;
+}
 @media screen and (max-width: 510px){
   .feed-container {
     display: grid;
@@ -159,7 +169,6 @@ export default {
       "feed-top feed-top"
       "feed-body feed-image";
     grid-template-columns: 80% 20%;
-    grid-template-rows: 30% 70%;
   }
   .feed-top {
     grid-area: feed-top;
@@ -172,7 +181,7 @@ export default {
   }
   .feed-image {
     width: 100%;
-    height: 100%;
+    height: 80px;
     grid-area: feed-image;
   }
   .feed-body {
