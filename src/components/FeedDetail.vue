@@ -84,7 +84,6 @@ export default {
 }
 .feed {
   width: 250px;
-  display: grid;
   margin: 10px;
   background-color: white;
   border-radius: 5px;
@@ -146,17 +145,36 @@ export default {
   padding: 10px;
 }
 @media screen and (max-width: 510px){
-    .feed{
-        width: 100%;
-        height: 500;
-    }
-    .feed-image {
-      width: 100%;
-      height: 150px;
-    }
-    .feed-top-btn {
-        height: 20px;
-        width: 20px;
-    }
+  .feed-container {
+    margin: 0px;
+    padding: 0px;
+  }
+  .feed{
+    width: 45%;
+    margin: 5px;
+  }
+  .feed-writer {
+    font-size: 14px;
+  }
+  .feed-date {
+    font-size: 12px;
+  }
+  .feed-image {
+    width: 100%;
+    height: 150px;
+  }
+  .feed-top-btn {
+    height: 15px;
+    width: 15px;
+  }
+  .feed-title {
+    font-size: 14px;
+  }
+  .feed-description {
+    font-size: 12px;
+  }
+  .feed-url {
+    display: none;
+  }
 }
 </style>
