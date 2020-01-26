@@ -4,7 +4,11 @@
       <textarea id="post-url" v-model="url" placeholder="http://" rows="5"/>
     </div>
     <div class="post-tags">
-      <input id="post-tags" v-model="tags" type="text" placeholder="#Python (Optional, Maximum 3)" />
+      <input v-on:keyup="searchTag" id="post-tags" type="text" placeholder="#Python (Optional, Maximum 3)" />
+      <!-- <div class="tag-list" id="tag-list">
+        <span>python</span>
+        <span>golang</span>
+      </div> -->
     </div>
     <div class="post-switch">
       <label class="container">Private
@@ -29,6 +33,8 @@ export default {
       url: '',
       tags: '',
       isPrivate: true,
+      keyword: '',
+      searchResult: ["python", "msa", "golang", "clean-architecture"],
     }
   },
   created() {
@@ -48,6 +54,31 @@ export default {
     });
   },
   methods: {
+    displayTagList() {
+      const current = document.getElementById("tag-list").style.display;
+      
+      if (current == 'block') {
+        document.getElementById("tag-list").style.display = 'none';
+      } else {
+        document.getElementById("tag-list").style.display = 'block';
+      }
+    },
+    addTag(tag) {
+      this.tags.push(tag);
+      console.log(tag);
+    },
+    searchTag(event) {
+      var tag = event.srcElement.value;
+
+      setTimeout(() => {
+        if (this.isTagExist(tag)) {
+          this.displayTagList();
+        }
+      }, 500);
+    },
+    isTagExist(tag) {
+      return true;
+    },
     checkPrivate() {
       this.isPrivate = !this.isPrivate;
     },
@@ -106,6 +137,7 @@ export default {
   width: 100%;
 }
 .post-tags {
+  position: relative;
   display: grid;
   justify-items: center;
   width: 100%;
@@ -216,5 +248,26 @@ export default {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+.tag-list {
+  display: none;
+  position: absolute;
+  top: 38px;
+  width: 100%;
+  padding: 8px;
+  max-width: 798px;
+  border: 1px solid lightgray;
+  background-color: white;
+  z-index: 9999;
+}
+.tag-list span {
+  padding: 5px;
+}
+.tag-list span:not(:last-child) {
+  margin-right: 10px;
+}
+.tag-list span:hover {
+  color: white;
+  background-color: #94b8ff;
 }
 </style>
