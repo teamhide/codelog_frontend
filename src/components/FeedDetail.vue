@@ -25,11 +25,7 @@
         </div>
         <div class="feed-body">
           <div class="feed-title">
-              {{
-                feed.title !== null ?
-                getBufferSize(feed.title) < 22 ? feed.title : feed.title.substr(0, 22) : 
-                "No title"
-               }}
+            {{ feed.title }}
           </div>
           <div class="feed-description">
             {{
@@ -87,14 +83,14 @@ export default {
   justify-content: center;
 }
 .feed {
+  width: 250px;
   display: grid;
   margin: 10px;
   background-color: white;
   border-radius: 5px;
   transition-duration: 0.3s;
 }
-.feed:hover
-{
+.feed:hover {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
