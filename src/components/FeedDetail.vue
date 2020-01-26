@@ -146,12 +146,23 @@ export default {
 }
 @media screen and (max-width: 510px){
   .feed-container {
+    display: grid;
     margin: 0px;
     padding: 0px;
   }
   .feed{
-    width: 45%;
-    margin: 5px;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-areas:
+      "feed-top feed-top"
+      "feed-body feed-image";
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 30% 70%;
+  }
+  .feed-top {
+    grid-area: feed-top;
   }
   .feed-writer {
     font-size: 14px;
@@ -161,7 +172,11 @@ export default {
   }
   .feed-image {
     width: 100%;
-    height: 150px;
+    height: 100%;
+    grid-area: feed-image;
+  }
+  .feed-body {
+    grid-area: feed-body;
   }
   .feed-top-btn {
     height: 15px;

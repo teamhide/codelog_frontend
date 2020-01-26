@@ -12,7 +12,7 @@
     </div>
     <div class="post-switch">
       <label class="container">Private
-        <input v-on:click="checkPrivate" type="checkbox" checked="checked">
+        <input v-on:click="checkPrivate" type="checkbox">
         <span class="checkmark"></span>
       </label>
     </div>
