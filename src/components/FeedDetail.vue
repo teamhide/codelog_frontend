@@ -1,6 +1,6 @@
 <template>
   <div class="feed-container">
-    <div class="feed" v-for="feed in feeds" v-bind:key="feed.id">
+    <div v-bind:id="'feed-' + feed.id" class="feed" v-for="feed in feeds" v-bind:key="feed.id" v-bind:class="{ 'read-feed': feed.is_read === true }">
       <div class="feed-top">
         <div class="feed-top-left">
           <div class="feed-writer">
@@ -14,7 +14,7 @@
           <div class="feed-top-btn" v-on:click="deleteFeed(feed.id)"></div>
         </div>
       </div>
-      <div class="feed-image">
+      <div class="feed-image" v-on:click="readFeed(feed.is_read, feed.id)">
         <template v-if="feed.image !== null">
           <a :href="''+feed.url+''" target="_blank"><img :src="''+feed.image+''" width="100%" height="100%" style="background-size: cover; background-position: center;" /></a>
         </template>
@@ -22,7 +22,7 @@
           <a :href="''+feed.url+''" target="_blank"><img src="../assets/no-image.jpg" width="100%" height="100%" style="background-size: cover; background-position: center;" /></a>
         </template>
       </div>
-      <div class="feed-body">
+      <div class="feed-body" v-on:click="readFeed(feed.is_read, feed.id)">
         <a :href="''+feed.url+''" target="_blank">
           <div class="feed-title">
             {{ feed.title }}
@@ -71,8 +71,22 @@ export default {
         .catch(() => {
           alert('피드 삭제 실패');
         });
-      }
-    }
+      },
+      readFeed(isRead, feedId) {
+        if (isRead === true) {
+          return
+        }
+        if (!this.$store.getters.getToken) {
+          return
+        }
+        axios.get(`${Endpoint.URL}/api/feeds/${feedId}/read`, {
+          headers: { Authorization: 'Bearer '+ this.$store.getters.getToken }
+        })
+        .then(() => {
+          document.getElementById(`feed-${feedId}`).classList.add('read-feed');
+        })
+      },
+    },
 }
 </script>
 
@@ -88,6 +102,9 @@ export default {
   background-color: white;
   border-radius: 5px;
   transition-duration: 0.3s;
+}
+.read-feed {
+  opacity: 0.5;
 }
 .feed:hover {
   -webkit-transform: scale(1.05);
