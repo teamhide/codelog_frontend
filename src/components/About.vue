@@ -20,6 +20,7 @@
       2. 유효한 URL만 올려주세요.<br />
       3. 의도적인 홍보글은 즉시 제제됩니다.<br />
       4. 본 사이트의 목적에 부합하지 않는 글은 즉시 제재됩니다.<br />
+      5. 본 사이트는 크롬 브라우저에 최적회되어 있습니다.
     </div>
     <div class="about-header">
       <p>Contact</p>
@@ -41,6 +42,7 @@ export default {
 }
 .about-header {
   /* max-width: 500px; */
+  margin-bottom: -15px;
 }
 .about-header p {
   font-size: 20px;
