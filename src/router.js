@@ -6,6 +6,7 @@ import Search from './components/Search.vue'
 import Write from './components/Write.vue'
 import Login from './components/Login.vue'
 import About from './components/About.vue'
+import RSS from './components/RSS.vue'
 import PrivateFeed from './components/PrivateFeed.vue'
 
 Vue.use(VueRouter)
@@ -40,6 +41,10 @@ export const router = new VueRouter({
       {
         path: '/private',
         component: PrivateFeed
+      },
+      {
+        path: '/rss',
+        component: RSS
       },
     ]
   })  

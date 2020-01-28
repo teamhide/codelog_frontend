@@ -15,11 +15,14 @@
       </div>
     </div>
     <div class="header-bottom">
-      <div class="header-bottom-left">
+      <div class="header-bottom-private">
         <router-link to="/private">Private</router-link>
       </div>
-      <div class="header-bottom-right">
+      <div class="header-bottom-all">
         <router-link to="/">All</router-link>
+      </div>
+      <div class="header-bottom-rss">
+        <router-link to="/rss">RSS</router-link>
       </div>
     </div>
   </header>
@@ -58,7 +61,7 @@ header {
 }
 .header-bottom {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 33.3% 33.3% 33.3%;
 }
 .header-top-left {
   display: grid;
@@ -93,7 +96,7 @@ header {
   color: white;
   text-decoration: none;
 }
-.header-bottom-left, .header-bottom-right {
+.header-bottom-private, .header-bottom-all, .header-bottom-rss {
   display: grid;
   justify-content: center;
   align-items: center;
