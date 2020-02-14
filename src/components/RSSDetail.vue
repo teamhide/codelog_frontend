@@ -1,6 +1,6 @@
 <template>
   <div class="rss-container">
-    <div v-for="each in rss" v-bind:key="each" class="rss">
+    <div v-for="each in rss" v-bind:key="each" class="rss" v-on:click='this.getRss()'>
       <div class="rss-header">
         우아한형제들 기술블로그
       </div>
@@ -24,7 +24,10 @@
 export default {
   name: 'RSSDetail',
   props: {
-      rss: Array
+      rss: Array,
+      getRss: {
+        type: Function,
+      }
   },
 }
 </script>

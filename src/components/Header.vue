@@ -21,9 +21,9 @@
       <div class="header-bottom-all">
         <router-link to="/">All</router-link>
       </div>
-      <div class="header-bottom-rss">
+      <!-- <div class="header-bottom-rss">
         <router-link to="/rss">RSS</router-link>
-      </div>
+      </div> -->
     </div>
   </header>
 </template>
@@ -61,7 +61,8 @@ header {
 }
 .header-bottom {
   display: grid;
-  grid-template-columns: 33.3% 33.3% 33.3%;
+  /* grid-template-columns: 33.3% 33.3% 33.3%; */
+  grid-template-columns: auto auto;
 }
 .header-top-left {
   display: grid;
