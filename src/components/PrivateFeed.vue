@@ -32,7 +32,7 @@ export default {
 
     var params = new URLSearchParams();
     params.append('token', this.$store.getters.getToken);
-    axios.post(`${Endpoint.URL}/oauth/verify_token`, params)
+    axios.post(`${Endpoint.URL}/oauth/verify_token/`, params)
     .catch((err) => {
       this.$store.commit('deleteToken');
       this.$store.commit('deleteRefreshToken');
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     async getFeeds() {
-      var url = `${Endpoint.URL}/api/feeds/private`
+      var url = `${Endpoint.URL}/api/feeds/private/`
       let data;
 
       if (this.prev) {

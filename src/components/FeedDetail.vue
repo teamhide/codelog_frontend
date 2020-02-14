@@ -58,7 +58,7 @@ export default {
         return (str.length + (!b ? 0: b.length)); 
       },
       deleteFeed(feedId) {
-        axios.delete(`${Endpoint.URL}/api/feeds/${feedId}`, {
+        axios.delete(`${Endpoint.URL}/api/feeds/${feedId}/`, {
           headers: { Authorization: 'Bearer '+ this.$store.getters.getToken }
         })
         .then(() => {
@@ -79,7 +79,7 @@ export default {
         if (!this.$store.getters.getToken) {
           return
         }
-        axios.get(`${Endpoint.URL}/api/feeds/${feedId}/read`, {
+        axios.get(`${Endpoint.URL}/api/feeds/${feedId}/read/`, {
           headers: { Authorization: 'Bearer '+ this.$store.getters.getToken }
         })
         .then(() => {
