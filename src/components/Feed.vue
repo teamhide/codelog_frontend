@@ -30,7 +30,7 @@ export default {
     } else {
       var params = new URLSearchParams();
       params.append('token', this.$store.getters.getToken);
-      axios.post(`${Endpoint.URL}/oauth/verify_token/`, params)
+      axios.post(`${Endpoint.URL}/oauth/verify_token`, params)
       .catch((err) => {
         this.logOut();
       });
