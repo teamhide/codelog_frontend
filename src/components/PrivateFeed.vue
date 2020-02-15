@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     async getFeeds() {
-      var url = `${Endpoint.URL}/api/feeds/private/`
+      var url = `${Endpoint.URL}/api/feeds/private`
       let data;
 
       if (this.prev) {
