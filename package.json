@@ -9,7 +9,7 @@
     "deploy": "aws s3 sync ./dist s3://codelog.kr"
   },
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
